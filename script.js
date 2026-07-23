@@ -460,4 +460,16 @@ async function fetchKnowledgeData(cleanItemName, rawItemName) {
 }
 
 function openKnowledgeDrawer(title, info) {
-    const drawer = document.getElementB
+    // 1. ดึง Element ของ Drawer ออกมา (ระบุ ID ให้ถูกต้อง)
+    const drawer = document.getElementById('knowledge-drawer');
+    
+    // 2. นำข้อมูล title และ info ไปใส่ใน Element ย่อยข้างใน
+    const titleElement = drawer.querySelector('.drawer-title');
+    const infoElement = drawer.querySelector('.drawer-info');
+    
+    if (titleElement) titleElement.textContent = title;
+    if (infoElement) infoElement.textContent = info;
+    
+    // 3. สั่งแสดงผล Drawer (เช่น เติม class 'active' หรือ 'open')
+    drawer.classList.add('open');
+}
